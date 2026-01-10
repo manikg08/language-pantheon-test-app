@@ -4,14 +4,20 @@ Splits files larger than 25MB into smaller pieces
 """
 
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# Load environment variables from .env file
+load_dotenv()
 
-# Add your OpenAI API key here
-OPENAI_API_KEY = "your-api-key-here"  # Replace with your actual API key
+# Get API key from environment variables
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Check if API key is loaded
+if not OPENAI_API_KEY:
+    print("[ERROR] OPENAI_API_KEY not found in .env file!")
+    print("[TIP] Create a .env file with: OPENAI_API_KEY=your-key-here")
+    exit()
 
 # Whisper model to use
 WHISPER_MODEL = "gpt-4o-transcribe"
@@ -133,7 +139,7 @@ def main():
     # ========================================================================
 
     # Path to your large audio file
-    audio_path = r"C:\Users\manik\Desktop\language_pantheon_App\WhatsApp Audio 2026-01-10 at 14.38.41.wav"
+    audio_path = r"C:\Users\manik\Desktop\language_pantheon_app_developement\WhatsApp Audio 2026-01-10 at 14.38.41.wav"
 
     # Output file
     output_text_file = "german_words_complete.txt"

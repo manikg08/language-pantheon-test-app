@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+
+# Audio files (optional - if you don't want to upload large audio files)
+*.wav
+*.mp3
+*.mp4
+*.mpeg
+*.wmv
+
+# Output files
+german_words*.txt
+*_chunks/
