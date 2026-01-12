@@ -241,498 +241,449 @@ def main():
         page_title="German B2 Learning Pipeline", page_icon="🇩🇪", layout="wide"
     )
 
-    # Custom CSS - Enhanced Modern UI
+    # Custom CSS - Professional Enterprise UI
     st.markdown(
         """
         <style>
-        /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
-        /* Global Styles */
+        /* Global Styles - Professional Typography */
         html, body, [class*="css"] {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            color: #0f172a;
+            font-weight: 600;
         }
 
         /* Main Container */
         .main {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f8fafc;
         }
 
-        /* Header Styling */
+        /* Header Styling - Professional */
         .main-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 4px solid #1e40af;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .main-title {
             color: white;
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 600;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
         }
 
         .main-subtitle {
-            color: #f0f0f0;
-            font-size: 1.3rem;
+            color: #e0e7ff;
+            font-size: 1.1rem;
             margin-top: 0.5rem;
-            font-weight: 300;
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
-        /* Vocabulary Cards */
+        /* Vocabulary Cards - Professional */
         .vocab-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 15px 0;
-            border-left: 6px solid #667eea;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vocab-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
-            border-radius: 0 0 0 100%;
+            background: white;
+            padding: 24px 28px;
+            margin: 16px 0;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
         }
 
         .vocab-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.2);
-            border-left-color: #764ba2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border-left-color: #1e40af;
         }
 
         .word-title {
-            font-size: 32px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 26px;
+            font-weight: 600;
+            color: #0f172a;
             margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
         .translation {
-            font-size: 22px;
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 18px;
-            font-weight: 500;
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 16px;
+            font-weight: 400;
         }
 
         .pos-badge {
             display: inline-block;
-            padding: 5px 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 4px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 10px;
+            letter-spacing: 0.8px;
+            border: 1px solid #bfdbfe;
         }
 
-        /* Example Box */
+        /* Example Box - Professional */
         .example {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
-            padding: 18px;
-            border-left: 5px solid #667eea;
-            margin: 15px 0;
-            border-radius: 10px;
-            font-size: 16px;
-            line-height: 1.6;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            background: #f1f5f9;
+            padding: 16px 20px;
+            border-left: 3px solid #2563eb;
+            margin: 12px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            border: 1px solid #e2e8f0;
         }
 
         .example strong {
-            color: #667eea;
+            color: #1e40af;
             font-weight: 600;
         }
 
-        /* Transcript Box */
+        /* Transcript Box - Professional */
         .transcript-box {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #e5e7eb;
-            margin: 25px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            background: white;
+            padding: 24px 28px;
+            border: 1px solid #e2e8f0;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             line-height: 1.8;
-            font-size: 16px;
-            color: #374151;
+            font-size: 15px;
+            color: #334155;
         }
 
-        /* Metric Cards */
+        /* Metric Cards - Professional Dashboard Style */
         .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 25px;
-            border-radius: 15px;
+            background: white;
+            padding: 24px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .metric-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
         }
 
         .metric-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border-color: #2563eb;
         }
 
         .metric-card h3 {
-            color: white;
-            font-size: 2.5rem;
+            color: #2563eb;
+            font-size: 2.25rem;
             font-weight: 700;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
         }
 
         .metric-card p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
+            color: #64748b;
+            font-size: 0.875rem;
             margin: 8px 0 0 0;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
-        /* Buttons */
+        /* Buttons - Professional */
         .stButton>button {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.3px;
         }
 
         .stButton>button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: #1e40af;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        /* Sidebar */
+        /* Sidebar - Professional */
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #f8f9ff 0%, #e0e7ff 100%);
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
         }
 
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1,
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
-            color: #667eea;
-            font-weight: 700;
+            color: #0f172a;
+            font-weight: 600;
         }
 
-        /* Progress Steps */
+        /* Progress Steps - Professional */
         .step-success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
+            background: white;
+            color: #059669;
+            padding: 12px 16px;
             margin: 8px 0;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            font-weight: 500;
+            border: 1px solid #d1fae5;
+            border-left: 3px solid #059669;
+            font-size: 14px;
         }
 
         .step-active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
+            background: white;
+            color: #2563eb;
+            padding: 12px 16px;
             margin: 8px 0;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            animation: pulse 2s infinite;
+            border: 1px solid #bfdbfe;
+            border-left: 3px solid #2563eb;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.1);
         }
 
         .step-pending {
-            background: #e5e7eb;
-            color: #6b7280;
-            padding: 12px;
-            border-radius: 10px;
+            background: white;
+            color: #94a3b8;
+            padding: 12px 16px;
             margin: 8px 0;
-            font-weight: 500;
+            font-weight: 400;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #cbd5e1;
+            font-size: 14px;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Tabs */
+        /* Tabs - Professional */
         .stTabs [data-baseweb="tab-list"] {
-            gap: 10px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            gap: 0;
+            background: white;
+            padding: 0;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .stTabs [data-baseweb="tab"] {
             background: transparent;
-            border-radius: 10px;
-            color: #667eea;
-            font-weight: 600;
-            padding: 12px 24px;
-            transition: all 0.3s ease;
+            color: #64748b;
+            font-weight: 500;
+            padding: 14px 28px;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 15px;
         }
 
         .stTabs [data-baseweb="tab"]:hover {
-            background: rgba(102, 126, 234, 0.1);
+            color: #2563eb;
+            background: #f8fafc;
         }
 
         .stTabs [aria-selected="true"] {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white !important;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            background: transparent;
+            color: #2563eb !important;
+            border-bottom: 2px solid #2563eb;
+            font-weight: 600;
         }
 
-        /* Quiz Options */
+        /* Quiz Options - Professional */
         .quiz-option {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            padding: 20px;
-            border-radius: 12px;
+            background: white;
+            padding: 16px 20px;
             margin: 10px 0;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .quiz-option:hover {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
-            transform: translateX(5px);
+            border-color: #2563eb;
+            background: #f8fafc;
         }
 
-        /* Info/Warning/Error boxes */
+        /* Info/Warning/Error boxes - Professional */
         .stAlert {
-            border-radius: 12px;
-            border-left-width: 5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left-width: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
-        /* File Uploader */
+        /* File Uploader - Professional */
         [data-testid="stFileUploader"] {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            border-radius: 15px;
+            background: white;
             padding: 20px;
-            border: 2px dashed #667eea;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 2px dashed #cbd5e1;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        /* Text Area */
+        /* Text Area - Professional */
         .stTextArea textarea {
-            border-radius: 12px;
-            border: 2px solid #e5e7eb;
-            font-size: 16px;
-            padding: 15px;
-            transition: all 0.3s ease;
+            border: 1px solid #cbd5e1;
+            font-size: 15px;
+            padding: 12px;
+            transition: all 0.2s ease;
         }
 
         .stTextArea textarea:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* Select Box */
+        /* Select Box - Professional */
         .stSelectbox > div > div {
-            border-radius: 10px;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
         }
 
         .stSelectbox > div > div:focus-within {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* Metrics */
+        /* Metrics - Professional */
         [data-testid="stMetricValue"] {
-            font-size: 2rem;
+            font-size: 1.875rem;
             font-weight: 700;
-            color: #667eea;
+            color: #2563eb;
         }
 
-        /* Expander */
+        /* Expander - Professional */
         .streamlit-expanderHeader {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
-            border-radius: 10px;
-            font-weight: 600;
-            color: #667eea;
+            background: #f8fafc;
+            font-weight: 500;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
         }
 
         /* Audio Player */
         audio {
             width: 100%;
-            border-radius: 10px;
         }
 
-        /* Spinner */
+        /* Spinner - Professional */
         .stSpinner > div {
-            border-top-color: #667eea !important;
+            border-top-color: #2563eb !important;
         }
 
-        /* Section Headers */
+        /* Section Headers - Professional */
         .section-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
+            background: white;
+            color: #0f172a;
+            padding: 16px 0;
             font-size: 1.5rem;
-            font-weight: 700;
-            margin: 20px 0 15px 0;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
-            display: flex;
-            align-items: center;
+            font-weight: 600;
+            margin: 24px 0 16px 0;
+            border-bottom: 2px solid #e2e8f0;
+            letter-spacing: -0.5px;
         }
 
-        /* Info Box */
+        /* Info Box - Professional */
         .info-box {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
-            border-left: 5px solid #667eea;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: #eff6ff;
+            border-left: 3px solid #2563eb;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border: 1px solid #bfdbfe;
         }
 
         .info-box p {
             margin: 0;
-            color: #374151;
-            font-size: 15px;
+            color: #1e40af;
+            font-size: 14px;
             line-height: 1.6;
         }
 
-        /* Success Box */
+        /* Success Box - Professional */
         .success-box {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            border-left: 5px solid #10b981;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+            background: #f0fdf4;
+            border-left: 3px solid #059669;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border: 1px solid #bbf7d0;
         }
 
-        /* Quiz Question Box */
+        /* Quiz Question Box - Professional */
         .quiz-question {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border: 3px solid #667eea;
+            background: white;
+            padding: 28px;
+            border: 2px solid #2563eb;
             margin: 20px 0;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1f2937;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #0f172a;
             text-align: center;
+            line-height: 1.6;
         }
 
-        /* Radio Buttons */
+        /* Radio Buttons - Professional */
         .stRadio > div {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
         }
 
         /* File Info Box */
         .file-info {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            border: 2px solid #e5e7eb;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
         }
 
-        /* Download Button */
+        /* Download Button - Professional */
         .stDownloadButton>button {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: #059669;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .stDownloadButton>button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            background: #047857;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        /* Divider */
+        /* Divider - Professional */
         hr {
             border: none;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #667eea 50%, transparent 100%);
-            margin: 30px 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 24px 0;
         }
 
-        /* Custom Scrollbar */
+        /* Custom Scrollbar - Professional */
         ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
+            background: #f1f5f9;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
+            background: #cbd5e1;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: #94a3b8;
         }
         </style>
     """,
         unsafe_allow_html=True,
     )
 
-    # Header with modern design
+    # Header - Professional
     st.markdown(
         """
         <div class="main-header">
-            <h1 class="main-title">🇩🇪 German B2 Learning Pipeline</h1>
-            <p class="main-subtitle">Audio → Transcription → Vocabulary → Interactive Learning</p>
+            <h1 class="main-title">German Language Learning Platform</h1>
+            <p class="main-subtitle">Advanced B2-Level Vocabulary Extraction & Analysis System</p>
         </div>
     """,
         unsafe_allow_html=True,
@@ -752,30 +703,30 @@ def main():
 
     # Sidebar - Progress tracker
     with st.sidebar:
-        st.markdown("## 📊 Pipeline Progress")
+        st.markdown("## Processing Pipeline")
 
         # Progress indicators with custom styling
         steps = {
-            1: "🎤 Audio Input",
-            2: "📝 Transcription",
-            3: "📚 Vocabulary",
-            4: "🎯 Learning",
+            1: "Step 1: Audio Input",
+            2: "Step 2: Transcription",
+            3: "Step 3: Vocabulary Extraction",
+            4: "Step 4: Assessment",
         }
 
         for step_num, step_name in steps.items():
             if step_num < st.session_state.current_step:
                 st.markdown(
-                    f'<div class="step-success">✅ {step_name}</div>',
+                    f'<div class="step-success">✓ {step_name}</div>',
                     unsafe_allow_html=True,
                 )
             elif step_num == st.session_state.current_step:
                 st.markdown(
-                    f'<div class="step-active">▶️ {step_name}</div>',
+                    f'<div class="step-active">→ {step_name}</div>',
                     unsafe_allow_html=True,
                 )
             else:
                 st.markdown(
-                    f'<div class="step-pending">⏸️ {step_name}</div>',
+                    f'<div class="step-pending">○ {step_name}</div>',
                     unsafe_allow_html=True,
                 )
 
@@ -794,7 +745,7 @@ def main():
 
         st.markdown("---")
 
-        if st.button("🔄 Reset Pipeline"):
+        if st.button("Reset Pipeline"):
             st.session_state.transcript = ""
             st.session_state.vocabulary = []
             st.session_state.quiz_score = 0
@@ -803,13 +754,13 @@ def main():
             st.rerun()
 
     # Main content
-    tabs = st.tabs(["🎤 Step 1: Audio Input", "📚 Step 2: Study", "🎯 Step 3: Quiz"])
+    tabs = st.tabs(["1. Audio Input", "2. Vocabulary Study", "3. Knowledge Assessment"])
 
     # ========================================================================
     # TAB 1: AUDIO INPUT & TRANSCRIPTION
     # ========================================================================
     with tabs[0]:
-        st.markdown('<div class="section-header">🎤 Step 1: Provide German Audio or Text</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">Audio Input & Transcription</div>', unsafe_allow_html=True)
 
         input_method = st.radio(
             "Choose input method:",
@@ -817,8 +768,8 @@ def main():
         )
 
         if input_method == "Upload Audio File":
-            st.markdown("#### 🎤 Upload Audio File")
-            st.markdown('<div class="info-box"><p>📁 Supported formats: MP3, WAV, M4A, MPEG, MP4, WEBM (max 25MB)</p></div>', unsafe_allow_html=True)
+            st.markdown("#### Upload Audio File")
+            st.markdown('<div class="info-box"><p>Supported formats: MP3, WAV, M4A, MPEG, MP4, WEBM (max 25MB)</p></div>', unsafe_allow_html=True)
 
             uploaded_audio = st.file_uploader(
                 "Choose an audio file",
@@ -834,7 +785,7 @@ def main():
                     st.write(f"**Size:** {uploaded_audio.size / 1024:.2f} KB")
 
                 with col2:
-                    if st.button("🎙️ Transcribe", type="primary"):
+                    if st.button("Transcribe Audio", type="primary"):
                         if uploaded_audio.size > 25 * 1024 * 1024:
                             st.error("File too large! Maximum size is 25MB.")
                         else:
@@ -846,11 +797,11 @@ def main():
                                 if transcript:
                                     st.session_state.transcript = transcript
                                     st.session_state.current_step = 2
-                                    st.success("✅ Transcription complete!")
+                                    st.success("Transcription completed successfully.")
                                     st.rerun()
 
         elif input_method == "Paste Text":
-            st.markdown("#### 📝 Paste German Text")
+            st.markdown("#### Paste German Text")
 
             text_input = st.text_area(
                 "Paste your German text here:",
@@ -858,17 +809,17 @@ def main():
                 placeholder="Ich habe also die Mails beantwortet, solange die Kinder noch geschlafen haben...",
             )
 
-            if st.button("✅ Use This Text", type="primary"):
+            if st.button("Load Text", type="primary"):
                 if text_input.strip():
                     st.session_state.transcript = text_input.strip()
                     st.session_state.current_step = 2
-                    st.success("✅ Text loaded!")
+                    st.success("Text loaded successfully.")
                     st.rerun()
                 else:
                     st.error("Please enter some text!")
 
         else:  # Load from File
-            st.markdown("#### 📁 Load Text from File")
+            st.markdown("#### Load Text from File")
 
             uploaded_text = st.file_uploader("Choose a text file", type=["txt"])
 
@@ -876,16 +827,16 @@ def main():
                 text_content = uploaded_text.read().decode("utf-8")
                 st.text_area("File content:", text_content, height=200)
 
-                if st.button("✅ Use This File", type="primary"):
+                if st.button("Load File", type="primary"):
                     st.session_state.transcript = text_content
                     st.session_state.current_step = 2
-                    st.success("✅ File loaded!")
+                    st.success("File loaded successfully.")
                     st.rerun()
 
         # Display current transcript
         if st.session_state.transcript:
             st.markdown("---")
-            st.markdown("#### 📄 Current Transcript")
+            st.markdown("#### Transcribed Content")
 
             st.markdown(
                 f"""
@@ -898,30 +849,30 @@ def main():
 
             # Extract vocabulary button
             if not st.session_state.vocabulary:
-                if st.button("📚 Extract B2 Vocabulary", type="primary"):
+                if st.button("Extract B2 Vocabulary", type="primary"):
                     with st.spinner("Analyzing text and extracting vocabulary..."):
                         vocabulary = extract_b2_vocabulary(st.session_state.transcript)
                         st.session_state.vocabulary = vocabulary
                         st.session_state.current_step = 3
 
                     if vocabulary:
-                        st.success(f"✅ Extracted {len(vocabulary)} B2-level words!")
+                        st.success(f"Successfully extracted {len(vocabulary)} B2-level vocabulary words.")
                         st.balloons()
                         st.rerun()
             else:
                 st.success(
                     f"✅ {len(st.session_state.vocabulary)} vocabulary words ready!"
                 )
-                st.info("👉 Go to the 'Study' tab to review vocabulary")
+                st.info("Navigate to the 'Vocabulary Study' tab to review extracted terms.")
 
     # ========================================================================
     # TAB 2: STUDY VOCABULARY
     # ========================================================================
     with tabs[1]:
-        st.markdown('<div class="section-header">📚 Step 2: Study Vocabulary</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">Vocabulary Analysis & Study</div>', unsafe_allow_html=True)
 
         if not st.session_state.vocabulary:
-            st.warning("⚠️ No vocabulary available yet!")
+            st.warning("No vocabulary data available.")
             st.info("Please provide audio or text in Step 1, then extract vocabulary.")
         else:
             # Summary metrics
@@ -1042,7 +993,7 @@ def main():
                     )
 
                 if word_data.get("b2_relevance"):
-                    with st.expander("ℹ️ Why is this B2-relevant?"):
+                    with st.expander("Why is this B2-relevant?"):
                         st.write(word_data["b2_relevance"])
 
                 st.markdown("")
@@ -1052,32 +1003,32 @@ def main():
             col1, col2 = st.columns(2)
 
             with col1:
-                if st.button("📥 Export to CSV"):
+                if st.button("Export to CSV"):
                     import pandas as pd
 
                     df = pd.DataFrame(st.session_state.vocabulary)
                     csv = df.to_csv(index=False)
                     st.download_button(
-                        label="⬇️ Download CSV",
+                        label="Download CSV",
                         data=csv,
                         file_name="german_b2_vocabulary.csv",
                         mime="text/csv",
                     )
 
             with col2:
-                if st.button("🎯 Ready for Quiz!"):
+                if st.button("Continue to Assessment"):
                     st.session_state.current_step = 4
-                    st.success("✅ Moving to quiz mode!")
+                    st.success("Proceeding to assessment module.")
                     st.rerun()
 
     # ========================================================================
     # TAB 3: QUIZ MODE
     # ========================================================================
     with tabs[2]:
-        st.markdown('<div class="section-header">🎯 Step 3: Test Your Knowledge</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">Knowledge Assessment</div>', unsafe_allow_html=True)
 
         if not st.session_state.vocabulary:
-            st.warning("⚠️ No vocabulary available for quiz!")
+            st.warning("No vocabulary data available for assessment.")
             st.info("Please complete Steps 1 and 2 first.")
         else:
             # Score display
@@ -1109,7 +1060,7 @@ def main():
 
             with col1:
                 if (
-                    st.button("🎲 New Question", type="primary")
+                    st.button("Generate Question", type="primary")
                     or st.session_state.current_quiz is None
                 ):
                     import random
@@ -1126,7 +1077,7 @@ def main():
                             st.rerun()
 
             with col2:
-                if st.button("🔄 Reset Score"):
+                if st.button("Reset Score"):
                     st.session_state.quiz_score = 0
                     st.session_state.quiz_total = 0
                     st.rerun()
@@ -1135,7 +1086,7 @@ def main():
             if st.session_state.current_quiz:
                 quiz = st.session_state.current_quiz
 
-                st.markdown('<div class="section-header">📝 Complete the Sentence</div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header">Question</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="quiz-question">{quiz["question"]}</div>', unsafe_allow_html=True)
 
                 st.markdown("")
@@ -1168,18 +1119,18 @@ def main():
                     st.markdown("---")
 
                     if st.session_state.selected_answer == quiz["correct"]:
-                        st.success("🎉 **Correct!** Well done!")
+                        st.success("**Correct.** Well done!")
                     else:
                         st.error(
-                            f"❌ **Wrong!** The correct answer is: **{quiz['options'][quiz['correct']]}**"
+                            f"**Incorrect.** The correct answer is: **{quiz['options'][quiz['correct']]}**"
                         )
 
-                    st.info(f"**💡 Explanation:** {quiz.get('explanation', 'N/A')}")
+                    st.info(f"**Explanation:** {quiz.get('explanation', 'N/A')}")
 
                     st.markdown("")
 
                     if st.button(
-                        "➡️ Next Question", type="primary", use_container_width=True
+                        "Next Question", type="primary", use_container_width=True
                     ):
                         st.session_state.current_quiz = None
                         st.session_state.quiz_answered = False
@@ -1190,7 +1141,7 @@ def main():
 if __name__ == "__main__":
     # Check for API key
     if not OPENAI_API_KEY:
-        st.error("⚠️ OpenAI API key not found!")
+        st.error("OpenAI API key not configured.")
         st.info(
             """
         **For Deployment:**
@@ -1203,18 +1154,18 @@ if __name__ == "__main__":
         )
 
         st.markdown("---")
-        st.markdown("### 🎭 Demo Mode")
+        st.markdown("### Demo Mode")
         st.markdown(
             """
             <div class="info-box">
-                <p><strong>👀 Preview the UI without API key:</strong></p>
-                <p>Click the button below to explore the interface with sample data.</p>
+                <p><strong>Preview the platform with sample data:</strong></p>
+                <p>Click below to explore the interface functionality with pre-loaded vocabulary examples.</p>
             </div>
         """,
             unsafe_allow_html=True,
         )
 
-        if st.button("🚀 Launch Demo Mode", type="primary"):
+        if st.button("Launch Demo", type="primary"):
             # Create demo session state
             st.session_state.transcript = """Ich habe also die Mails beantwortet, solange die Kinder noch geschlafen haben.
             Dann habe ich sie in den Kindergarten gebracht und bin zum Supermarkt gegangen."""
