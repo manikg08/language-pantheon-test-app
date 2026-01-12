@@ -1193,13 +1193,61 @@ if __name__ == "__main__":
         st.error("⚠️ OpenAI API key not found!")
         st.info(
             """
-        Please add your OpenAI API key to the `.env` file:
-        
-        ```
-        OPENAI_API_KEY=your-api-key-here
-        ```
+        **For Deployment:**
+        - Go to Streamlit Cloud → Your App → Settings → Secrets
+        - Add: `OPENAI_API_KEY = "your-key-here"`
+
+        **For Local Development:**
+        - Create a `.env` file with: `OPENAI_API_KEY=your-key-here`
         """
         )
-        st.stop()
+
+        st.markdown("---")
+        st.markdown("### 🎭 Demo Mode")
+        st.markdown(
+            """
+            <div class="info-box">
+                <p><strong>👀 Preview the UI without API key:</strong></p>
+                <p>Click the button below to explore the interface with sample data.</p>
+            </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+        if st.button("🚀 Launch Demo Mode", type="primary"):
+            # Create demo session state
+            st.session_state.transcript = """Ich habe also die Mails beantwortet, solange die Kinder noch geschlafen haben.
+            Dann habe ich sie in den Kindergarten gebracht und bin zum Supermarkt gegangen."""
+
+            st.session_state.vocabulary = [
+                {
+                    "word": "beantworten",
+                    "translation": "to answer, to reply",
+                    "pos": "verb",
+                    "article": "",
+                    "example": "Ich beantworte die E-Mails jeden Morgen.",
+                    "b2_relevance": "Important verb used in professional contexts for responding to communications."
+                },
+                {
+                    "word": "Kindergarten",
+                    "translation": "kindergarten",
+                    "pos": "noun",
+                    "article": "der",
+                    "example": "Die Kinder gehen jeden Tag in den Kindergarten.",
+                    "b2_relevance": "Common compound noun in family and education contexts."
+                },
+                {
+                    "word": "Supermarkt",
+                    "translation": "supermarket",
+                    "pos": "noun",
+                    "article": "der",
+                    "example": "Ich kaufe Lebensmittel im Supermarkt.",
+                    "b2_relevance": "Essential vocabulary for daily life and shopping contexts."
+                }
+            ]
+            st.session_state.current_step = 3
+            st.session_state.quiz_score = 0
+            st.session_state.quiz_total = 0
+            st.rerun()
 
     main()
