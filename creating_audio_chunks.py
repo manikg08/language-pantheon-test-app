@@ -271,9 +271,13 @@ def main():
             font-weight: 600;
         }
 
-        /* All text elements */
-        p, span, div, label {
-            color: #1e293b !important;
+        /* Text elements - more selective */
+        p {
+            color: #1e293b;
+        }
+
+        label {
+            color: #0f172a;
         }
 
         /* Form labels */
@@ -553,10 +557,27 @@ def main():
 
         /* File Uploader - Professional */
         [data-testid="stFileUploader"] {
-            background: white;
+            background: white !important;
             padding: 20px;
             border: 2px dashed #cbd5e1;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-testid="stFileUploader"] section {
+            background: white !important;
+        }
+
+        [data-testid="stFileUploader"] > div {
+            background: white !important;
+        }
+
+        [data-testid="stFileUploadDropzone"] {
+            background: #f8fafc !important;
+        }
+
+        [data-testid="stFileUploader"] button {
+            background: #2563eb !important;
+            color: white !important;
         }
 
         /* Text Area - Professional */
@@ -772,6 +793,28 @@ def main():
 
         [data-baseweb="select"] {
             background: white !important;
+        }
+
+        /* Additional file uploader fixes */
+        [data-testid="stFileUploader"] label {
+            color: #0f172a !important;
+        }
+
+        [data-testid="stFileUploader"] small {
+            color: #64748b !important;
+        }
+
+        /* Make sure no elements have black background */
+        section, div[data-testid] {
+            background-color: inherit;
+        }
+
+        /* Override any dark theme */
+        @media (prefers-color-scheme: dark) {
+            html, body, .stApp, .main {
+                background: #f8fafc !important;
+                color: #1e293b !important;
+            }
         }
         </style>
     """,
