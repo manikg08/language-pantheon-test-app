@@ -238,7 +238,11 @@ def main():
 
     # Page configuration
     st.set_page_config(
-        page_title="German B2 Learning Pipeline", page_icon="🇩🇪", layout="wide"
+        page_title="German B2 Learning Pipeline",
+        page_icon="🇩🇪",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items=None
     )
 
     # Custom CSS - Professional Enterprise UI
@@ -249,17 +253,56 @@ def main():
         html, body, [class*="css"] {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #1e293b;
+            background: #f8fafc !important;
+        }
+
+        /* Override Streamlit's default backgrounds */
+        .stApp {
+            background: #f8fafc !important;
+        }
+
+        section[data-testid="stSidebar"] > div {
+            background: #f8fafc !important;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            color: #0f172a;
+            color: #0f172a !important;
             font-weight: 600;
+        }
+
+        /* All text elements */
+        p, span, div, label {
+            color: #1e293b !important;
+        }
+
+        /* Form labels */
+        .stRadio > label,
+        .stSelectbox > label,
+        .stTextArea > label,
+        .stFileUploader > label,
+        [data-testid="stWidgetLabel"] {
+            color: #0f172a !important;
+            background: transparent !important;
         }
 
         /* Main Container */
         .main {
             background: #f8fafc;
+        }
+
+        /* Force consistent backgrounds */
+        .main .block-container {
+            background: #f8fafc;
+        }
+
+        /* Ensure all content areas have proper background */
+        [data-testid="stVerticalBlock"] {
+            background: transparent;
+        }
+
+        [data-testid="stHorizontalBlock"] {
+            background: transparent;
         }
 
         /* Header Styling - Professional */
@@ -617,10 +660,23 @@ def main():
         }
 
         /* Radio Buttons - Professional */
+        .stRadio {
+            background: transparent !important;
+        }
+
         .stRadio > div {
-            background: white;
-            padding: 12px;
-            border: 1px solid #e2e8f0;
+            background: transparent !important;
+            padding: 0;
+            border: none;
+        }
+
+        .stRadio > label {
+            background: transparent !important;
+            color: #0f172a !important;
+        }
+
+        .stRadio [data-baseweb="radio"] {
+            background: white !important;
         }
 
         /* File Info Box */
@@ -672,6 +728,50 @@ def main():
 
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
+        }
+
+        /* Additional background fixes */
+        [data-testid="stMarkdownContainer"] {
+            background: transparent !important;
+        }
+
+        [data-testid="stText"] {
+            color: #1e293b !important;
+        }
+
+        /* Input field backgrounds */
+        input, textarea, select {
+            background: white !important;
+            color: #0f172a !important;
+        }
+
+        /* Markdown text color */
+        .stMarkdown {
+            color: #1e293b !important;
+        }
+
+        /* Widget containers */
+        [data-testid="stForm"] {
+            background: transparent !important;
+        }
+
+        /* Column containers */
+        [data-testid="column"] {
+            background: transparent !important;
+        }
+
+        /* Ensure metric labels are visible */
+        [data-testid="stMetricLabel"] {
+            color: #64748b !important;
+        }
+
+        /* Fix any remaining dark mode elements */
+        [data-baseweb="base-input"] {
+            background: white !important;
+        }
+
+        [data-baseweb="select"] {
+            background: white !important;
         }
         </style>
     """,
@@ -861,7 +961,7 @@ def main():
                         st.rerun()
             else:
                 st.success(
-                    f"✅ {len(st.session_state.vocabulary)} vocabulary words ready!"
+                    f"{len(st.session_state.vocabulary)} vocabulary words ready."
                 )
                 st.info("Navigate to the 'Vocabulary Study' tab to review extracted terms.")
 
@@ -985,7 +1085,7 @@ def main():
                     st.markdown(
                         f"""
                         <div class="example">
-                            <strong>📝 Example:</strong><br>
+                            <strong>Example:</strong><br>
                             {word_data['example']}
                         </div>
                     """,
@@ -1035,17 +1135,17 @@ def main():
             col1, col2, col3 = st.columns(3)
 
             with col1:
-                st.metric("✅ Correct", st.session_state.quiz_score)
+                st.metric("Correct", st.session_state.quiz_score)
             with col2:
-                st.metric("📊 Total", st.session_state.quiz_total)
+                st.metric("Total", st.session_state.quiz_total)
             with col3:
                 if st.session_state.quiz_total > 0:
                     accuracy = (
                         st.session_state.quiz_score / st.session_state.quiz_total
                     ) * 100
-                    st.metric("🎯 Accuracy", f"{accuracy:.1f}%")
+                    st.metric("Accuracy", f"{accuracy:.1f}%")
                 else:
-                    st.metric("🎯 Accuracy", "0%")
+                    st.metric("Accuracy", "0%")
 
             st.markdown("---")
 
