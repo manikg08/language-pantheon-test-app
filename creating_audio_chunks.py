@@ -241,60 +241,502 @@ def main():
         page_title="German B2 Learning Pipeline", page_icon="🇩🇪", layout="wide"
     )
 
-    # Custom CSS
+    # Custom CSS - Enhanced Modern UI
     st.markdown(
         """
         <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        /* Global Styles */
+        html, body, [class*="css"] {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        /* Main Container */
+        .main {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Header Styling */
+        .main-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            text-align: center;
+        }
+
+        .main-title {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .main-subtitle {
+            color: #f0f0f0;
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* Vocabulary Cards */
         .vocab-card {
-            background-color: #f0f2f6;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-            border-left: 5px solid #1f77b4;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .vocab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.2);
+            border-left-color: #764ba2;
+        }
+
         .word-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1f77b4;
-            margin-bottom: 5px;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
         }
+
         .translation {
-            font-size: 20px;
-            color: #666;
+            font-size: 22px;
+            color: #6b7280;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            font-weight: 500;
         }
+
+        .pos-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        /* Example Box */
         .example {
-            background-color: #e8f4f8;
-            padding: 15px;
-            border-left: 4px solid #1f77b4;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        .transcript-box {
-            background-color: #f8f9fa;
-            padding: 20px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+            padding: 18px;
+            border-left: 5px solid #667eea;
+            margin: 15px 0;
             border-radius: 10px;
-            border: 2px solid #dee2e6;
-            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
         }
+
+        .example strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Transcript Box */
+        .transcript-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e5e7eb;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            line-height: 1.8;
+            font-size: 16px;
+            color: #374151;
+        }
+
+        /* Metric Cards */
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35);
+        }
+
+        .metric-card h3 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .metric-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            margin: 8px 0 0 0;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Buttons */
         .stButton>button {
             width: 100%;
-        }
-        .metric-card {
-            background-color: #e8f4f8;
-            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
             border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .stButton>button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* Sidebar */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #f8f9ff 0%, #e0e7ff 100%);
+        }
+
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1,
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        /* Progress Steps */
+        .step-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .step-active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .step-pending {
+            background: #e5e7eb;
+            color: #6b7280;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Tabs */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stTabs [data-baseweb="tab"] {
+            background: transparent;
+            border-radius: 10px;
+            color: #667eea;
+            font-weight: 600;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .stTabs [data-baseweb="tab"]:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .stTabs [aria-selected="true"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Quiz Options */
+        .quiz-option {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 10px 0;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
+            transform: translateX(5px);
+        }
+
+        /* Info/Warning/Error boxes */
+        .stAlert {
+            border-radius: 12px;
+            border-left-width: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* File Uploader */
+        [data-testid="stFileUploader"] {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px dashed #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Text Area */
+        .stTextArea textarea {
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            font-size: 16px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stTextArea textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Select Box */
+        .stSelectbox > div > div {
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .stSelectbox > div > div:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Metrics */
+        [data-testid="stMetricValue"] {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* Expander */
+        .streamlit-expanderHeader {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
+            border-radius: 10px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Audio Player */
+        audio {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Spinner */
+        .stSpinner > div {
+            border-top-color: #667eea !important;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #374151;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 5px solid #10b981;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Quiz Question Box */
+        .quiz-question {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #667eea;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1f2937;
             text-align: center;
+        }
+
+        /* Radio Buttons */
+        .stRadio > div {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* File Info Box */
+        .file-info {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Download Button */
+        .stDownloadButton>button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .stDownloadButton>button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #667eea 50%, transparent 100%);
+            margin: 30px 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
         </style>
     """,
         unsafe_allow_html=True,
     )
 
-    # Header
-    st.title("🇩🇪 Complete German B2 Learning Pipeline")
-    st.markdown("### Audio → Transcription → Vocabulary → Learning")
+    # Header with modern design
+    st.markdown(
+        """
+        <div class="main-header">
+            <h1 class="main-title">🇩🇪 German B2 Learning Pipeline</h1>
+            <p class="main-subtitle">Audio → Transcription → Vocabulary → Interactive Learning</p>
+        </div>
+    """,
+        unsafe_allow_html=True,
+    )
 
     # Initialize session state
     if "transcript" not in st.session_state:
@@ -310,9 +752,9 @@ def main():
 
     # Sidebar - Progress tracker
     with st.sidebar:
-        st.header("📊 Pipeline Progress")
+        st.markdown("## 📊 Pipeline Progress")
 
-        # Progress indicators
+        # Progress indicators with custom styling
         steps = {
             1: "🎤 Audio Input",
             2: "📝 Transcription",
@@ -322,11 +764,20 @@ def main():
 
         for step_num, step_name in steps.items():
             if step_num < st.session_state.current_step:
-                st.success(f"✅ {step_name}")
+                st.markdown(
+                    f'<div class="step-success">✅ {step_name}</div>',
+                    unsafe_allow_html=True,
+                )
             elif step_num == st.session_state.current_step:
-                st.info(f"▶️ {step_name}")
+                st.markdown(
+                    f'<div class="step-active">▶️ {step_name}</div>',
+                    unsafe_allow_html=True,
+                )
             else:
-                st.text(f"⏸️ {step_name}")
+                st.markdown(
+                    f'<div class="step-pending">⏸️ {step_name}</div>',
+                    unsafe_allow_html=True,
+                )
 
         st.markdown("---")
 
@@ -358,7 +809,7 @@ def main():
     # TAB 1: AUDIO INPUT & TRANSCRIPTION
     # ========================================================================
     with tabs[0]:
-        st.header("Step 1: Provide German Audio or Text")
+        st.markdown('<div class="section-header">🎤 Step 1: Provide German Audio or Text</div>', unsafe_allow_html=True)
 
         input_method = st.radio(
             "Choose input method:",
@@ -366,8 +817,8 @@ def main():
         )
 
         if input_method == "Upload Audio File":
-            st.subheader("🎤 Upload Audio File")
-            st.info("Supported formats: MP3, WAV, M4A, MPEG, MP4, WEBM (max 25MB)")
+            st.markdown("#### 🎤 Upload Audio File")
+            st.markdown('<div class="info-box"><p>📁 Supported formats: MP3, WAV, M4A, MPEG, MP4, WEBM (max 25MB)</p></div>', unsafe_allow_html=True)
 
             uploaded_audio = st.file_uploader(
                 "Choose an audio file",
@@ -399,7 +850,7 @@ def main():
                                     st.rerun()
 
         elif input_method == "Paste Text":
-            st.subheader("📝 Paste German Text")
+            st.markdown("#### 📝 Paste German Text")
 
             text_input = st.text_area(
                 "Paste your German text here:",
@@ -417,7 +868,7 @@ def main():
                     st.error("Please enter some text!")
 
         else:  # Load from File
-            st.subheader("📁 Load Text from File")
+            st.markdown("#### 📁 Load Text from File")
 
             uploaded_text = st.file_uploader("Choose a text file", type=["txt"])
 
@@ -434,7 +885,7 @@ def main():
         # Display current transcript
         if st.session_state.transcript:
             st.markdown("---")
-            st.subheader("📄 Current Transcript")
+            st.markdown("#### 📄 Current Transcript")
 
             st.markdown(
                 f"""
@@ -467,7 +918,7 @@ def main():
     # TAB 2: STUDY VOCABULARY
     # ========================================================================
     with tabs[1]:
-        st.header("Step 2: Study Vocabulary")
+        st.markdown('<div class="section-header">📚 Step 2: Study Vocabulary</div>', unsafe_allow_html=True)
 
         if not st.session_state.vocabulary:
             st.warning("⚠️ No vocabulary available yet!")
@@ -573,7 +1024,7 @@ def main():
                         <div class="translation">
                             {word_data['translation']}
                         </div>
-                        <p><strong>Part of speech:</strong> {word_data['pos']}</p>
+                        <span class="pos-badge">{word_data['pos']}</span>
                     </div>
                 """,
                     unsafe_allow_html=True,
@@ -623,7 +1074,7 @@ def main():
     # TAB 3: QUIZ MODE
     # ========================================================================
     with tabs[2]:
-        st.header("Step 3: Test Your Knowledge")
+        st.markdown('<div class="section-header">🎯 Step 3: Test Your Knowledge</div>', unsafe_allow_html=True)
 
         if not st.session_state.vocabulary:
             st.warning("⚠️ No vocabulary available for quiz!")
@@ -684,8 +1135,8 @@ def main():
             if st.session_state.current_quiz:
                 quiz = st.session_state.current_quiz
 
-                st.markdown("### 📝 Complete the sentence:")
-                st.markdown(f"## {quiz['question']}")
+                st.markdown('<div class="section-header">📝 Complete the Sentence</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="quiz-question">{quiz["question"]}</div>', unsafe_allow_html=True)
 
                 st.markdown("")
 
